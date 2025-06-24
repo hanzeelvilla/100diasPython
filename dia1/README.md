@@ -7,3 +7,8 @@ print("Texto")
 
 ## Strings
 Cadenas de caracteres **entre comillas dobles**
+
+- Se puede concatenar o unir **2 o más** `strings` con el operador `+`
+```python
+"Conca" + "tenación
+```
