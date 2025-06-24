@@ -12,3 +12,14 @@ Cadenas de caracteres **entre comillas dobles**
 ```python
 "Conca" + "tenación
 ```
+
+## Recibir información del usuario
+```python
+input("Dame data: ")
+```
+
+## Comentarios
+El símbolo `#` se usa para comentarios
+```python
+# Soy un comentarios
+```
