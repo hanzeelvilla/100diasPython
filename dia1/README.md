@@ -25,6 +25,9 @@ El símbolo `#` se usa para comentarios
 ```
 
 ## Variables
+- Tienen que tener nombres significativos
+- Usar **snake case**
+
 ```python
 nombre = "Hanzeel"
 ```
