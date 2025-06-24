@@ -23,3 +23,8 @@ El símbolo `#` se usa para comentarios
 ```python
 # Soy un comentarios
 ```
+
+## Variables
+```python
+nombre = "Hanzeel"
+```

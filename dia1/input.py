@@ -1,1 +1,5 @@
-print("Hola " + input("Cuál es tu nombre? ") + "!")
+# print("Hola " + input("Cuál es tu nombre? ") + "!")
+nombre = input("Cual es tu nombre? ")
+longitud_nombre = len(nombre)
+print(nombre)
+print(nombre + "tiene una longitud de: " + str(longitud_nombre))
