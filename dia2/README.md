@@ -41,3 +41,24 @@ bool(1)
 | División entera | `//` | `10 // 3`    | `3`       | División sin decimales (entera) |
 | Módulo   | `%`     | `10 % 3`         | `1`       | Resto de la división            |
 | Potencia | `**`    | `2 ** 3`         | `8`       | Exponenciación (potencia)       |
+
+## Operadores de Asignación
+| Operador | Ejemplo     | Equivalente     | Descripción                          |
+|----------|-------------|------------------|--------------------------------------|
+| `=`      | `x = 5`     | —                | Asigna el valor 5 a `x`              |
+| `+=`     | `x += 3`    | `x = x + 3`      | Suma y asigna                        |
+| `-=`     | `x -= 2`    | `x = x - 2`      | Resta y asigna                       |
+| `*=`     | `x *= 4`    | `x = x * 4`      | Multiplica y asigna                  |
+| `/=`     | `x /= 2`    | `x = x / 2`      | Divide y asigna (resultado flotante)|
+| `//=`    | `x //= 2`   | `x = x // 2`     | División entera y asigna             |
+| `%=`     | `x %= 2`    | `x = x % 2`      | Módulo y asigna                      |
+| `**=`    | `x **= 3`   | `x = x ** 3`     | Potencia y asigna                    |
+
+# F Strings
+Insertar valores de variables dentro de una cadena de texto. Se escribe con la letra `f` al inicio de la cadena, con variables encerradas entre llaves `{}`.
+```python
+nombre = "Hanzeel"
+edad = 21
+altura = 1.75
+print(f"Me llamo {nombre} tengo {edad} años mido {altura}")
+```
