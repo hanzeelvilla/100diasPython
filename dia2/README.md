@@ -30,3 +30,14 @@ int("123")
 float(123)
 bool(1)
 ```
+
+## Operadores matemáticos
+| Operador | Símbolo | Ejemplo         | Resultado | Descripción                     |
+|----------|---------|------------------|-----------|---------------------------------|
+| Suma     | `+`     | `3 + 2`          | `5`       | Suma dos valores                |
+| Resta    | `-`     | `5 - 2`          | `3`       | Resta el segundo del primero    |
+| Multiplicación | `*` | `4 * 3`        | `12`      | Multiplica dos valores          |
+| División | `/`     | `10 / 2`         | `5.0`     | División con resultado flotante |
+| División entera | `//` | `10 // 3`    | `3`       | División sin decimales (entera) |
+| Módulo   | `%`     | `10 % 3`         | `1`       | Resto de la división            |
+| Potencia | `**`    | `2 ** 3`         | `8`       | Exponenciación (potencia)       |
