@@ -40,3 +40,16 @@ num_favorito = 24
 import my_module
 print(my_module.num_favorito)
 ```
+
+## Lists
+[Documentacion](https://docs.python.org/3/tutorial/datastructures.html)
+
+- Es una **estructura de datos**
+- Guardar elementos en común
+- Tiene orden
+
+```python
+frutas = ["manzana", "limón", "sandía"]
+print(frutas[0]) # manzana
+print(frutas[-1]) # sandía
+```
