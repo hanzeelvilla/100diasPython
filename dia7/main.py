@@ -1,6 +1,6 @@
 import random
 
-words = [
+WORDS = [
     "gato", "perro", "manzana", "zapato", "camisa", "libro", "ventana", "silla",
     "raton", "botella", "puerta", "carro", "mesa", "reloj", "camino", "luz",
     "sol", "luna", "estrella", "avion", "tren", "barco", "rio", "bosque", "cielo",
@@ -18,15 +18,70 @@ words = [
     "orquesta", "danza", "teatro", "cine", "cuadro", "poesia", "cuento", "novela",
     "drama", "historia", "retrato", "escultura", "mapa", "globo", "mundo", "pais",
     "ciudad", "pueblo", "barrio", "familia", "padre", "madre", "hermano", "hermana",
-    "tio", "tia", "primo", "prima", "abuelo", "abuela", "nino", "nina", "amigo",
+    "tio", "tia", "primo", "prima", "abuelo", "abuela", "niño", "niña", "amigo",
     "vecino"
 ]
-# 1. Seleccionar una palabra random
-random_word = random.choice(words)
-print(random_word)
+
+TITLE = "AHORCADO"
+
+HANGMANPICS = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\\  |
+ / \\  |
+      |
+=========''']
+
+
+# Seleccionar una palabra random
+random_word = random.choice(WORDS)
+#print(random_word)
 #print(len(random_word))
 
-# 2. Ocultar la palabra
+# Ocultar la palabra
 def hide_word(word):
     new_word = []
     for _ in word:
@@ -34,15 +89,38 @@ def hide_word(word):
     
     return new_word
 
-hidden_word = hide_word(random_word)
+hidden_word_list = hide_word(random_word)
+hidden_word_str = "".join(hidden_word_list)
+guessed_letters = []
 
-# 3. El usuario hace un guess de una letra (transformarla a lowercase)
-user_guess = input("Adivina una letra: ").lower()
-#print(user_guess)
+life_count = len(HANGMANPICS) # 7
 
-# 3. Comprobar si la letra se encuentra en algun lugar de mi random word
-for i, char in enumerate(random_word):
-    if user_guess == char:
-        hidden_word[i] = char
+print(TITLE + "\n")
 
-print("".join(hidden_word))
+while(life_count > 0 and hidden_word_str != random_word):
+    hidden_word_change = False
+
+    print(f"Palabra secreta: {hidden_word_str}")
+    user_guess = input("Adivina una letra: ").lower()
+
+    for i, char in enumerate(random_word):
+        if user_guess == char and char not in guessed_letters:
+            hidden_word_list[i] = char
+            hidden_word_change = True
+    
+    guessed_letters.append(user_guess)
+    
+    if not hidden_word_change:
+        print(HANGMANPICS[len(HANGMANPICS) - life_count])
+        print("Ops letra equivocada")
+        life_count -= 1
+
+    print("\n")
+    hidden_word_str = "".join(hidden_word_list)
+
+if hidden_word_str == random_word:
+    print("GANASE")
+else:
+    print("PERDISTE")
+
+print(F"Palabra secreta: {random_word}")
