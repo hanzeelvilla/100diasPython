@@ -24,18 +24,25 @@ words = [
 # 1. Seleccionar una palabra random
 random_word = random.choice(words)
 print(random_word)
+#print(len(random_word))
 
-# 2. El usuario hace un guess de una letra (transformarla a lowercase)
+# 2. Ocultar la palabra
+def hide_word(word):
+    new_word = []
+    for _ in word:
+        new_word.append("_")
+    
+    return new_word
+
+hidden_word = hide_word(random_word)
+
+# 3. El usuario hace un guess de una letra (transformarla a lowercase)
 user_guess = input("Adivina una letra: ").lower()
-print(user_guess)
+#print(user_guess)
 
 # 3. Comprobar si la letra se encuentra en algun lugar de mi random word
-def isLetterInWord(letter, word):
-    res = []
+for i, char in enumerate(random_word):
+    if user_guess == char:
+        hidden_word[i] = char
 
-    for char in word:
-        res.append(letter == char.lower())
-    
-    return res
-
-print(isLetterInWord(user_guess, random_word))
+print("".join(hidden_word))
