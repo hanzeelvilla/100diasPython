@@ -8,10 +8,13 @@ def encriptar(texto, desplazamiento):
     texto_encriptado = ""
 
     for char in texto:
-        char_index = alfabeto.index(char)
-        new_char = alfabeto[char_index + desplazamiento]
-        texto_encriptado += new_char
+        if char in alfabeto:
+            index_desplazado = alfabeto.index(char) + desplazamiento
+            index_desplazado %= len(alfabeto)
+            texto_encriptado += alfabeto[index_desplazado]
+        else:
+            texto_encriptado += char
     
     print(texto_encriptado)
 
-encriptar("hola", 1)
+encriptar("hola-nena-me-dicen-el-mike", 1)
