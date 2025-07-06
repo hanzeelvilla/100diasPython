@@ -17,4 +17,18 @@ def encriptar(texto, desplazamiento):
     
     print(texto_encriptado)
 
-encriptar("hola-nena-me-dicen-el-mike", 1)
+def desencriptar(texto, desplazamiento):
+    texto_desencriptado = ""
+
+    for char in texto:
+        if char in alfabeto:
+            index_desplazado = alfabeto.index(char) - desplazamiento
+            index_desplazado %= len(alfabeto)
+            texto_desencriptado += alfabeto[index_desplazado]
+        else:
+            texto_desencriptado += char
+
+    print(texto_desencriptado)
+
+encriptar("hola-nena-me-dicen-el-wasa", 10)
+desencriptar("ryvk-xoxk-wo-nsmox-ov-gkck ", 10)
