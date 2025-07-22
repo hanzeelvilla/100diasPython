@@ -4,8 +4,16 @@ recursos = {
     "dinero": 0
 }
 
-res = input("Qué quieres ordenar? (expresso/latte/capuccino): ").lower()
+maquina_encendida = True
 
-if res == "reporte":
-    for key in recursos:
-        print(f"{key}: {recursos[key]}")
+while maquina_encendida:
+    res = input("Qué quieres ordenar? (expresso/latte/capuccino): ").lower()
+
+    if res == "reporte":
+        for key in recursos:
+            print(f"{key}: {recursos[key]}")
+    elif(res == "off"):
+        print("Apagando máquina")
+        maquina_encendida = False
+    else:
+        print("Opción no válida")
