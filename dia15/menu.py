@@ -20,6 +20,6 @@ MENU = {
             "leche": 100,
             "cafe": 24
         },
-        "precio": 3
+        "precio": 3.0
     }
 }
