@@ -19,19 +19,24 @@ def procesar_monedas(quarters, dimes, nickles, pennies, precio_cafe):
     TOTAL_PENNIES = pennies * VAL_PENNY
 
     TOTAL = TOTAL_QUARTERS + TOTAL_DIMES + TOTAL_NICKLES + TOTAL_PENNIES
-    print(f"Dinero ingresado: {TOTAL}")
+    print(f"Dinero ingresado: {round(TOTAL, 2)}")
 
     if TOTAL == precio_cafe:
         return True
     elif TOTAL > precio_cafe:
         CAMBIO = TOTAL - precio_cafe
-        print(f"Toma tu cambio: {CAMBIO}")
+        print(f"Toma tu cambio: {round(CAMBIO, 2)}")
         return True
     else:
         RESTANTE = precio_cafe - TOTAL
-        print(f"Dinero insuficiente, hacen falta {RESTANTE}")
+        print(f"Dinero insuficiente, hacen falta {round(RESTANTE, 2)}")
         return False
 
+def actualizar_recursos(ingredientes_cafe, precio_cafe):
+    RECURSOS["dinero"] += precio_cafe
+
+    for key in ingredientes_cafe:
+        RECURSOS[key] -= ingredientes_cafe[key]
 
 RECURSOS = {
     "agua": 300,
@@ -64,7 +69,9 @@ while maquina_encendida:
             nickles = int(input("Cuántos nickles? "))
             pennies = int(input("Cuántos pennies? "))
 
-            procesar_monedas(quarters, dimes, nickles, pennies, precio_cafe)
+            if procesar_monedas(quarters, dimes, nickles, pennies, precio_cafe):
+                print("Aquí tienes tu café")
+                actualizar_recursos(ingredientes_cafe, precio_cafe)
 
         else:
             print(f"No hay suficientes recursos para hacer un {res}")
