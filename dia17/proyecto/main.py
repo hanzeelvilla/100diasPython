@@ -9,4 +9,10 @@ for pregunta in preguntas:
     banco_preguntas.append(nueva_pregunta)
 
 quiz = Quiz(banco_preguntas)
-quiz.siguiente_pregunta()
+
+while quiz.hay_preguntas():
+    quiz.siguiente_pregunta()
+    print(f"Tu score actual es: {quiz.score}/{quiz.numero_pregunta}")
+    print("")
+
+print(f"Tu score final es: {quiz.score}/{quiz.numero_pregunta}")
